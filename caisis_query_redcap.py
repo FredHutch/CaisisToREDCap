@@ -8,9 +8,10 @@ import pyodbc
 import json
 import os
 import csv
+import sys
 
 # json config file holds details of disease, patients, and database
-config = json.load(open("config.json","r"))
+config = json.load(open(sys.argv[1],"r"))
 mrns = [x.strip() for x in open(config["patients"]["patient_id_file"],"r").readlines()]
 metadata = json.load(open(config["disease"]["metadata"], "r"))
 
